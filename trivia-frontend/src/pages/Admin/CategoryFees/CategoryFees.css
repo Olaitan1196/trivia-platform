@@ -1,0 +1,98 @@
+.category-fees-page h2 {
+  color: #0d1b2a;
+  margin-bottom: 20px;
+}
+
+.fee-form {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.fee-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.fee-form select,
+.fee-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.fee-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f4a300;
+  color: #0d1b2a;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fee-form button:hover {
+  background-color: #ffb733;
+}
+
+.fee-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #ffe5e5;
+  color: #b00000;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.category-fees-page h3 {
+  color: #0d1b2a;
+  margin-bottom: 15px;
+}
+
+.fee-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fee-table th,
+.fee-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.fee-table th {
+  background-color: #0d1b2a;
+  color: #ffffff;
+}

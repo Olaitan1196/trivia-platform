@@ -1,0 +1,163 @@
+.event-detail-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  padding: 30px 40px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #0d1b2a;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.event-detail-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.event-detail-card h2 {
+  margin: 0 0 10px 0;
+  color: #0d1b2a;
+}
+
+.event-subject,
+.event-fee,
+.event-slots {
+  margin: 6px 0;
+  color: #555;
+  text-transform: capitalize;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-upcoming {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-ongoing {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.register-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background-color: #f4a300;
+  color: #0d1b2a;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #ffb733;
+}
+
+.register-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #ffe5e5;
+  color: #b00000;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.stages-list h3 {
+  color: #0d1b2a;
+  margin-bottom: 15px;
+}
+
+.stage-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 18px;
+  max-width: 500px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stage-card h4 {
+  margin: 0 0 8px 0;
+  color: #0d1b2a;
+}
+
+.stage-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.stage-status {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.stage-upcoming {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.stage-ongoing {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.stage-completed {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.event-detail-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #555;
+}
+
+.status-message {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fff3cd;
+  border-radius: 6px;
+  color: #664d03;
+  font-weight: 600;
+}

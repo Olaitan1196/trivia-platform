@@ -1,0 +1,100 @@
+.admin-withdrawals-page {
+  padding: 20px;
+}
+
+.admin-withdrawals-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-withdrawals-table th,
+.admin-withdrawals-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.admin-withdrawals-table th {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.user-email {
+  font-size: 12px;
+  color: #888;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.status-approved {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-paid {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-rejected {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.approve-button,
+.paid-button,
+.reject-button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.approve-button {
+  background-color: #0d6efd;
+}
+
+.paid-button {
+  background-color: #198754;
+}
+
+.reject-button {
+  background-color: #dc3545;
+}
+
+.approve-button:disabled,
+.paid-button:disabled,
+.reject-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.no-action {
+  font-size: 12px;
+  color: #888;
+}
