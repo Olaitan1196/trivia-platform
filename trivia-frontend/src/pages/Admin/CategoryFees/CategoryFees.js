@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import './CategoryFees.css';
 
 const CATEGORIES = ['student', 'salary earner', 'pensioner', 'freelancer', 'job seeker'];
@@ -17,7 +17,7 @@ function CategoryFees() {
 
   const fetchFees = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/category-fee/all', { headers });
+      const response = await api.get('/api/category-fee/all', { headers });
       setFees(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load category fees');
@@ -41,8 +41,8 @@ function CategoryFees() {
     setSubmitting(true);
 
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/category-fee/set',
+      const response = await api.post(
+        '/api/category-fee/set',
         {
           category: formData.category,
           minFee: Number(formData.minFee),

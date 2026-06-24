@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import Papa from 'papaparse';
 import './Questions.css';
 
@@ -45,7 +45,7 @@ function Questions() {
         difficulty: formData.difficulty,
       };
 
-      const response = await axios.post('http://localhost:5000/api/questions/add', payload, { headers });
+      const response = await api.post('/api/questions/add', payload, { headers });
 
       setMessage(response.data.message);
       setFormData({
@@ -96,8 +96,8 @@ function Questions() {
             difficulty: row.difficulty || 'medium',
           }));
 
-          const response = await axios.post(
-            'http://localhost:5000/api/questions/add-bulk',
+          const response = await api.post(
+            '/api/questions/add-bulk',
             { questions },
             { headers }
           );

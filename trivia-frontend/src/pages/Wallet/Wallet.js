@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import './Wallet.css';
 
@@ -25,13 +25,13 @@ function Wallet() {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      const balanceRes = await axios.get('http://localhost:5000/api/wallet/balance', { headers });
+      const balanceRes = await api.get('/api/wallet/balance', { headers });
       setWalletBalance(balanceRes.data.walletBalance);
 
-      const settingsRes = await axios.get('http://localhost:5000/api/settings', { headers });
+      const settingsRes = await api.get('/api/settings', { headers });
       setMinWithdrawalAmount(settingsRes.data.minWithdrawalAmount);
 
-      const withdrawalsRes = await axios.get('http://localhost:5000/api/wallet/my-withdrawals', { headers });
+      const withdrawalsRes = await api.get('/api/wallet/my-withdrawals', { headers });
       setWithdrawals(withdrawalsRes.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load wallet data');
@@ -78,8 +78,8 @@ function Wallet() {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      await axios.post(
-        'http://localhost:5000/api/wallet/withdraw',
+      await api.post(
+        '/api/wallet/withdraw',
         {
           amountRequested: amount,
           bankAccountNumber: formData.bankAccountNumber,

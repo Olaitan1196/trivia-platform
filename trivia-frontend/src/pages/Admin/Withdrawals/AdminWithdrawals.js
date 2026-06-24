@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import './AdminWithdrawals.css';
 
 function AdminWithdrawals() {
@@ -13,7 +13,7 @@ function AdminWithdrawals() {
 
   const fetchWithdrawals = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/wallet/all-withdrawals', { headers });
+      const response = await api.get('/api/wallet/all-withdrawals', { headers });
       setWithdrawals(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load withdrawals');
@@ -31,8 +31,8 @@ function AdminWithdrawals() {
     setProcessingId(withdrawalId);
 
     try {
-      await axios.put(
-        'http://localhost:5000/api/wallet/update-status',
+      await api.put(
+        '/api/wallet/update-status',
         { withdrawalId, status },
         { headers }
       );

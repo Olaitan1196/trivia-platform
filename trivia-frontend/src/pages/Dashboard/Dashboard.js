@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
@@ -27,10 +27,10 @@ function Dashboard() {
       try {
         const headers = { Authorization: `Bearer ${token}` };
 
-        const walletRes = await axios.get('http://localhost:5000/api/wallet/balance', { headers });
+        const walletRes = await api.get('/api/wallet/balance', { headers });
         setWalletBalance(walletRes.data.walletBalance);
 
-        const eventsRes = await axios.get('http://localhost:5000/api/events/my-category', { headers });
+        const eventsRes = await api.get('/api/events/my-category', { headers });
         setEvents(eventsRes.data);
       } catch (err) {
         setError(err.response?.data?.message || 'Failed to load dashboard data');

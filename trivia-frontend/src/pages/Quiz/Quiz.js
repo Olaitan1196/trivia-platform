@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Quiz.css';
 
@@ -19,7 +19,6 @@ function Quiz() {
   const timerRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // --- Anti-cheat: block right-click, copy, cut, paste, text selection ---
   useEffect(() => {
     const blockAction = (e) => e.preventDefault();
 
@@ -38,7 +37,6 @@ function Quiz() {
     };
   }, []);
 
-  // --- Anti-cheat: detect tab switching / app switching ---
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden) {
@@ -65,8 +63,8 @@ function Quiz() {
       try {
         const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.post(
-          'http://localhost:5000/api/quizsessions/start',
+        const response = await api.post(
+          '/api/quizsessions/start',
           { eventId, stageId },
           { headers }
         );
@@ -105,7 +103,6 @@ function Quiz() {
     return () => clearInterval(timerRef.current);
   }, [currentIndex, loading, questions]);
 
-  // --- Draw the current question text onto the canvas instead of plain HTML ---
   useEffect(() => {
     if (loading || questions.length === 0 || currentIndex >= questions.length) {
       return;
@@ -159,8 +156,8 @@ function Quiz() {
       const headers = { Authorization: `Bearer ${token}` };
       const currentQuestion = questions[currentIndex];
 
-      await axios.post(
-        'http://localhost:5000/api/quizsessions/answer',
+      await api.post(
+        '/api/quizsessions/answer',
         {
           sessionId,
           questionId: currentQuestion._id,
@@ -186,8 +183,8 @@ function Quiz() {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      await axios.post(
-        'http://localhost:5000/api/quizsessions/complete',
+      await api.post(
+        '/api/quizsessions/complete',
         { sessionId },
         { headers }
       );

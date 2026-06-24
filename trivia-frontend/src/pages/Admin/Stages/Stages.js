@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Stages.css';
 
@@ -32,7 +32,7 @@ function Stages() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/events/${eventId}`, { headers });
+      const response = await api.get(`/api/events/${eventId}`, { headers });
       setEvent(response.data.event);
       setStages(response.data.stages);
     } catch (err) {
@@ -68,7 +68,7 @@ function Stages() {
         isFinalStage: formData.isFinalStage,
       };
 
-      const response = await axios.post('http://localhost:5000/api/stages/create', payload, { headers });
+      const response = await api.post('/api/stages/create', payload, { headers });
 
       setMessage(response.data.message);
       setFormData({
@@ -93,8 +93,8 @@ function Stages() {
     setPayoutLoading(true);
 
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/event-participants/finalize-payout',
+      const response = await api.post(
+        '/api/event-participants/finalize-payout',
         { eventId, finalStageId },
         { headers }
       );
@@ -118,8 +118,8 @@ function Stages() {
     setAdvancingStageId(currentStageId);
 
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/event-participants/advance-stage',
+      const response = await api.post(
+        '/api/event-participants/advance-stage',
         { eventId, currentStageId, nextStageId },
         { headers }
       );

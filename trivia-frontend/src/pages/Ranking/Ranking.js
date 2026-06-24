@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Ranking.css';
 
@@ -21,8 +21,8 @@ function Ranking() {
 
     const fetchRanking = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/event-participants/ranking/${eventId}/${stageId}`
+        const response = await api.get(
+          `/api/event-participants/ranking/${eventId}/${stageId}`
         );
         setRanking(response.data);
       } catch (err) {

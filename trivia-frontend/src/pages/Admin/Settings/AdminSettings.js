@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import './AdminSettings.css';
 
 function AdminSettings() {
@@ -15,7 +15,7 @@ function AdminSettings() {
         const token = localStorage.getItem('token');
         const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.get('http://localhost:5000/api/settings', { headers });
+        const response = await api.get('/api/settings', { headers });
         setMinWithdrawalAmount(response.data.minWithdrawalAmount);
       } catch (err) {
         setError(err.response?.data?.message || 'Failed to load settings');
@@ -37,8 +37,8 @@ function AdminSettings() {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      const response = await axios.put(
-        'http://localhost:5000/api/settings/min-withdrawal',
+      const response = await api.put(
+        '/api/settings/min-withdrawal',
         { minWithdrawalAmount: Number(minWithdrawalAmount) },
         { headers }
       );

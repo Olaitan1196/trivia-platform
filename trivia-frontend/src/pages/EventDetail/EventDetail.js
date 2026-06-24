@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EventDetail.css';
 
@@ -26,12 +26,12 @@ function EventDetail() {
       try {
         const headers = { Authorization: `Bearer ${token}` };
 
-        const eventResponse = await axios.get(`http://localhost:5000/api/events/${eventId}`, { headers });
+        const eventResponse = await api.get(`/api/events/${eventId}`, { headers });
         setEvent(eventResponse.data.event);
         setStages(eventResponse.data.stages);
 
-        const statusResponse = await axios.get(
-          `http://localhost:5000/api/event-participants/my-status/${eventId}`,
+        const statusResponse = await api.get(
+          `/api/event-participants/my-status/${eventId}`,
           { headers }
         );
         setParticipantStatus(statusResponse.data);
@@ -53,8 +53,8 @@ function EventDetail() {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      const response = await axios.post(
-        'http://localhost:5000/api/event-participants/register',
+      const response = await api.post(
+        '/api/event-participants/register',
         { eventId },
         { headers }
       );

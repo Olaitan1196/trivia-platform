@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './PaymentConfirmation.css';
 
@@ -25,8 +25,8 @@ function PaymentConfirmation() {
 
         const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.post(
-          'http://localhost:5000/api/event-participants/confirm',
+        const response = await api.post(
+          '/api/event-participants/confirm',
           { reference, eventId },
           { headers }
         );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
 import { useNavigate } from 'react-router-dom';
 import './Events.css';
 
@@ -34,7 +34,7 @@ function Events() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/events/all', { headers });
+      const response = await api.get('/api/events/all', { headers });
       setEvents(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to load events');
@@ -91,7 +91,7 @@ function Events() {
         prizeDistribution: cleanedDistribution,
       };
 
-      const response = await axios.post('http://localhost:5000/api/events/create', payload, { headers });
+      const response = await api.post('/api/events/create', payload, { headers });
 
       setMessage(response.data.message);
       setFormData({
